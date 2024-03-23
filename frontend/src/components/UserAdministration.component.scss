@@ -1,0 +1,123 @@
+.main {
+  background-color: #eaeaea;
+}
+
+.form-users {
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 16px 52px;
+  width: 70%;
+  margin: 0 auto 16px;
+  background-color: white;
+
+  & > section {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    & > figure {
+      display: flex;
+      margin: 0;
+      gap: 24px;
+
+      & > span {
+        width: 100%;
+      }
+    }
+  }
+
+  & > h2 {
+    color: #e2231a;
+  }
+
+  & span {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  & label {
+    font-weight: bold;
+  }
+
+  & input,
+  select {
+    width: calc(100% - 40px);
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-sizing: border-box;
+  }
+
+  & > button {
+    background-color: #e2231a;
+    color: white;
+    padding: 14px 20px;
+    margin: 24px auto;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    width: 256px;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.users {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 24px;
+  & > button {
+    display: flex;
+    justify-content: center;
+    background-color: #e2231a;
+    color: white;
+    padding: 14px 20px;
+    margin: 24px auto;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    width: 256px;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  & section {
+    background-color: white;
+    border-collapse: collapse;
+    width: 90%;
+    margin: auto;
+    padding: 16px;
+    border-radius: 5px;
+    & table {
+      width: 100%;
+      & td,
+      th {
+        text-align: left;
+        padding: 8px;
+      }
+      & th {
+        border-bottom: 1px solid #575757;
+      }
+      & #edit,
+      #delete {
+        color: white;
+        padding: 6px 12px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+      }
+      & #edit {
+        background-color: #575757;
+      }
+      & #delete {
+        background-color: #e2231a;
+      }
+
+      & tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+    }
+  }
+}

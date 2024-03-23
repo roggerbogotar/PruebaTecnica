@@ -1,32 +1,23 @@
-import React, { Fragment, useEffect, useState } from "react";
-import logo from "./logo.svg";
-import "./App.scss";
+import React, { Fragment, Suspense, lazy } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+const LoginPage = lazy(() => import("./pages/login/Login.page"));
+const AdministrationPage = lazy(() => import("./pages/administration/Administration.page"));
+const SalesPage = lazy(() => import("./pages/sales/Sales.page"));
 
 const App = (): JSX.Element => {
-  const [users, setUsers] = useState<any>([]);
-
-  useEffect(() => {
-    fetch("http://localhost:4000/api/users")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setUsers(data);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }, []);
-
   return (
-    <div>
-      {users.map((user: any) => (
-        <div key={user?.id} className="usuario">
-          <div>Nombre: {user?.name}</div>
-          <div>Identificacion: {user?.idNumber}</div>
-          <div>Rol: {user?.role?.name}</div>
-        </div>
-      ))}
-    </div>
+    <Fragment>
+      <BrowserRouter basename="/">
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route index element={<LoginPage />} />
+            <Route path="/administracion" element={<AdministrationPage />} />
+            <Route path="/ventas" element={<SalesPage />} />
+          </Routes>
+        </Suspense>
+      </BrowserRouter>
+    </Fragment>
   );
 };
 

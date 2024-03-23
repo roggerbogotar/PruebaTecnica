@@ -1,0 +1,27 @@
+.topnav {
+  overflow: hidden;
+  border-bottom: 1px solid #e6e6e6;
+  & > span {
+    float: left;
+    color: #333333;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    &:hover {
+      color: #e2231a;
+      transition: all 0.5s ease;
+    }
+  }
+  &__logout {
+    float: right !important;
+    background-color: #e2231a;
+    color: #ffffff !important;
+    &:hover {
+      background-color: #333333;
+      transition: all 0.5 ease;
+    }
+  }
+}
