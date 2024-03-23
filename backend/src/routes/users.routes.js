@@ -5,6 +5,7 @@ import {
   updateUser,
   deleteUser,
   getUsersByRole,
+  loginUser,
 } from "../controllers/users.controller.js";
 
 const router = Router();
@@ -13,5 +14,6 @@ router.get("/", getUsers);
 router.put("/:id", updateUser);
 router.delete("/:id", deleteUser);
 router.get("/:id/role", getUsersByRole);
+router.post("/login", loginUser);
 
 export default router;

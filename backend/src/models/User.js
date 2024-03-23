@@ -27,5 +27,5 @@ export const User = sequelize.define(
   }
 );
 
-User.belongsTo(Log, { foreinkey, sourceKey });
-Log.hasMany(User, { foreinkey, targetId });
+// User.belongsTo(Log, { foreinkey, sourceKey });
+// Log.hasMany(User, { foreinkey, targetId });

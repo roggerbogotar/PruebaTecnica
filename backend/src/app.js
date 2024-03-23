@@ -1,5 +1,6 @@
 import express from "express";
 import morgan from "morgan";
+import cors from "cors";
 
 const app = express();
 
@@ -11,6 +12,7 @@ import logsRoutes from "./routes/logs.routes.js";
 
 app.use(morgan("dev"));
 app.use(express.json());
+app.use(cors());
 
 app.use("/api/sales", salesRoutes);
 app.use("/api/users", usersRoutes);
