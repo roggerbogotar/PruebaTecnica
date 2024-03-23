@@ -20,7 +20,6 @@ const Login = (): JSX.Element => {
     const { idNumber, password } = formData;
     const userLogged = await login(idNumber, btoa(password));
     if (userLogged) {
-      // console.log(userLogged);
       if (userLogged.role.id === MainRoles.ADMINISTRATOR) {
         navigate("/administracion");
       } else {
