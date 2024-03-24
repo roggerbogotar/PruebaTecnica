@@ -3,6 +3,7 @@ import "./ProductAdministration.component.scss";
 import { useForm } from "react-hook-form";
 import { Product } from "../models/Product";
 import { createProduct, deleteProduct, getProducts, updateProduct } from "../services/products.service";
+import { MainProduct, NameProduct} from "../models/Product";
 
 const ProductAdministration = (): JSX.Element => {
   const { handleSubmit, register, formState, setValue } = useForm<Product>({
@@ -47,7 +48,7 @@ const ProductAdministration = (): JSX.Element => {
     <main className="main">
       <form onSubmit={handleSubmit(handleSubmitProduct)}>
         <div className="form-users">
-          <h2>Formulario Productos</h2>
+          <h2>Formulario Inventario</h2>
           <section>
             {!isCreate && (
               <span>
@@ -66,31 +67,19 @@ const ProductAdministration = (): JSX.Element => {
               </span>
             </figure>
             <figure>
-              <span>
-                <label htmlFor="model">Modelo</label>
-                <input type="text" placeholder="Ingrese el modelo del producto" id="model" required {...register("model")} />
-              </span>
-              <span>
-                <label htmlFor="price">Precio</label>
-                <input type="number" placeholder="Ingrese el precio del producto" id="price" {...register("price")} />
-              </span>
-            </figure>
-            <figure>
-              <span>
-                <label htmlFor="description">Descripcion</label>
-                <input
-                  type="text"
-                  placeholder="Ingrese una descripcion del producto"
-                  id="description"
-                  required
-                  {...register("description")}
-                />
+            <span>
+                <label htmlFor="update">Accion</label>
+                <select id="select" required {...register("id")}>
+                  <option value="">--- Selecciona un Rol ---</option>
+                  <option value={MainProduct.ENTRANCE}>{NameProduct.ENTRANCE}</option>
+                  <option value={MainProduct.EXIT}>{NameProduct.EXIT}</option>
+                </select>
               </span>
             </figure>
           </section>
 
           <button type="submit" disabled={!isValid}>
-            {isCreate ? "Crear" : "Actualizar"}
+            {isCreate ? "Actualizar" : "Actualizar"}
           </button>
         </div>
       </form>
